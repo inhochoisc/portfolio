@@ -20,8 +20,8 @@
 	<!-- Header -->
 	<section id="header">
 		<header>
-			<span class="image avatar"><img src="images/avartar_plain.png" alt="" /></span>
-			<h1 id="logo"><a href="#">Inho Choi</a></h1>
+			<a href="#"><span class="image avatar"><img src="images/avartar.png" alt="" /></span></a>
+			<h1 id="logo">Inho Choi</a></h1>
 			<p>I am a passionate front-end developer<br />
 				& an experienced UX desinger</p>
 		</header>
@@ -41,7 +41,7 @@
 							class="label">Github</span></a></li>
 				<li><a href="mailto:inhochoisc@gmail.com" target="_blank" class="icon solid fa-envelope" title="Email"><span
 							class="label">Email</span></a></li>
-				<li><a href="https://drive.google.com/file/d/1NMpG8s1oBGdN5OPg2DZwkMzazewlFht7/view?usp=sharing" target="_blank"
+				<li><a href="https://drive.google.com/file/d/124ALUdfOwx8lMnRaVqMYqi0g069BmYzk/view?usp=sharing" target="_blank"
 						class="icon solid fa-file" title="resume"><span class="label">Resume</span></a></li>
 			</ul>
 		</footer>
@@ -58,9 +58,10 @@
 				<div id="carousel" class="image main">
 					<!-- <img src="images/banner.jpg" alt="" /> -->
 					<!-- <img src="images/banner_qrCodeGenerator.png" alt="" class="active" /> -->
-					<img src="images/banner_myPetDiary.png" alt="" />
-					<img src="images/banner_shoppingMall.png" alt="" />
-					<img src="images/banner_smilesForMiles.png" alt="" />
+					<a href="#" id="main_1"><img src="images/banner_myPetDiary.png" alt="" /></a>
+					<a href="#" id="main_2"><img src="images/banner_shoppingMall.png" alt="" /></a>
+					<a href="#" id="main_3"><img src="images/banner_smilesForMiles.png" alt="" /></a>				
+					
 					<div id="navigation">
 						<div id="dots"></div>
 					</div>
@@ -110,10 +111,10 @@
 					<h3>Projects</h3>
 					<hr>
 					<div class="features">
-						<article>
+						<article id="myPetDiary">
 							<a href="https://github.com/inhochoisc/myPetDiary" target="_blank" class="image"><img src="images/pic_myPetDiary.png" alt="" /></a>
 							<div class="inner">
-								<h4>My Pet Diary</h4>
+								<h4 id="link1">My Pet Diary</h4>
 								<p>This is a Diary application Users can keep dailiy lives with their lovely pets.
 									Choosing image and typing title and contents then this application creates small cards containing uploaded
 									information. </p>
@@ -127,7 +128,7 @@
 								</ul>
 							</div>
 						</article>
-						<article>
+						<article id="QRCode">
 							<a href="https://github.com/inhochoisc/QRCodeGenerator" target="_blank" class="image"><img src="images/pic_QRCodeGenerator.png" alt="" /></a>
 							<div class="inner">
 								<h4>QR Code Generator</h4>
@@ -144,11 +145,11 @@
 								</ul>
 							</div>
 						</article>
-						<article>
+						<article id="shoppingMall">
 							<a href="https://choiin.dev.fast.sheridanc.on.ca/SYST24444/Assignment04/" target="_blank"
 								class="image"><img src="images/pic_shoppingMall.png" alt="" /></a>
 							<div class="inner">
-								<h4>Shopping Mall</h4>
+								<h4 id="link2">Shopping Mall</h4>
 								<p>Personal information and product information are imported using JSON data and displayed on the
 									screen. The menu consists of a two tabs, and in the Product by Category tab, you can see products by
 									category when click the icon.</p>
@@ -159,7 +160,7 @@
 								</ul>
 							</div>
 						</article>
-						<article>
+						<article id="library">
 							<a href="https://choiin.dev.fast.sheridanc.on.ca/SYST24444/Assignment02/" target="_blank"
 								class="image"><img src="images/pic_library.png" alt="" /></a>
 							<div class="inner">
@@ -191,7 +192,7 @@
 								</ul>
 							</div>
 						</article> -->
-						<article>
+						<article id="rsvp">
 							<a href="https://educated-drifter-656.notion.site/UX-Design-Free-RSVP-2e9bec5fe15b4a74b90d36c7f9de2dfc"
 								target="_blank" class="image"><img src="images/pic_freeRSVP.png" alt="" /></a>
 							<div class="inner">
@@ -209,11 +210,11 @@
 								</ul>
 							</div>
 						</article>
-						<article>
+						<article id="smilesForMiles">
 							<a href="https://xd.adobe.com/view/98b5a03c-9cc1-4a00-bb57-71e0b1484f76-cde6/" target="_blank"
 								class="image"><img src="images/pic_smilesForMiles.png" alt="" /></a>
 							<div class="inner">
-								<h4>UX Design : Smiles for Miles</h4>
+								<h4 id="link3">UX Design : Smiles for Miles</h4>
 								<p>This is a group UX design project. Smiles for Miles is a mobile application for ios(iPhone X/XS/11
 									Pro-4) where users search and purchase gifts, providing convenient shopping experience to search
 									products, sign up and checkout as well. </p>
@@ -314,10 +315,17 @@
 			images[index].classList.add('active');
 
 			const dots = document.querySelectorAll('.dot');
-			dots.forEach(item => item.classList.remove('active'));
-			dots[index].classList.add('active');
-		}
+					dots.forEach(item => item.classList.remove('active'));
+					dots[index].classList.add('active');
+				}
 
+				//link main banner to each project 
+				[1, 2, 3].forEach(function (i) {
+					document.getElementById("main_" + i).addEventListener("click", function (event) {
+						event.preventDefault();
+						document.getElementById("link" + i).scrollIntoView({ behavior: "smooth" });
+					});
+				});
 
 
 	</script>
